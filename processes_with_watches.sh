@@ -53,14 +53,3 @@ do
   done
   echo
 done
-
-# the following one-liner simply echos the number of watches in the workspace
-
-# find /proc/*/fd/* -type l -lname 'anon_inode:inotify' 2>/dev/null |
-# sed -e 's@/fd/@/fdinfo/@' |
-# xargs cat |
-# grep inotify |
-# sed -e 's/^.*ino:\([[:alnum:]]*\) .*$/0x\1/' |
-# sort -n |
-# uniq |
-# while read line; do find src/writerite -inum $(($line)); done;
