@@ -14,7 +14,7 @@ typeset -A inode_map
 # duplicate hard links are present; then for each line
 find "$workspace" -exec ls -di {} + | sort -nu -k1,1 | while read line
 do
-  # split it into words by the IFS, then initialize an array with these words
+  # split it into words by the word-separator, then initialize an array with these words
   line_arr=(${=line})
   # the first word is the inode, so assign it as the key, whereas the other words form the path
   inode_map[$line_arr[1]]="$line_arr[2,-1]"
